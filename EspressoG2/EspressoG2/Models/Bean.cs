@@ -7,7 +7,7 @@ namespace EspressoG2.Models
     public class Bean
     {
         public int AmountInGrams { get; set; }
-        public string Sort { get; set; }
+        public List<string> Sort { get; set; } = new List<string> { "arabica", "skånerost","mollbergs blandning" };
 
         public Cup ToCup(string size)
         {
