@@ -6,11 +6,8 @@ namespace EspressoG2.Models
 {
     public class Cup
     {
-        public Cup(string size)
-        {
-            this.Size = size;
-        }
-
         public string Size { get; set; }
+
+        
     }
 }

@@ -9,14 +9,15 @@ namespace EspressoG2.Models
         public int AmountInGrams { get; set; }
         public string Sort { get; set; }
 
-        public Bean BeanBlend(int amount, string sort)
+        public Cup ToCup(string size)
         {
-            var bean = new Bean
+
+            var cup = new Cup
             {
-                AmountInGrams = amount,
-                Sort = sort
+                Size = size
             };
-            return bean;
+
+            return cup;
         }
 
     }

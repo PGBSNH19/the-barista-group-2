@@ -1,4 +1,5 @@
-﻿using System;
+﻿using EspressoG2.Models;
+using System;
 
 namespace EspressoG2
 {
@@ -7,13 +8,14 @@ namespace EspressoG2
         static void Main(string[] args)
         {
 
-        }
+            var coffee = new Coffee().BeanBlend(20, "Arabica").ToCup("Small");
 
-
-        private static void StartCoffeeMaking()
-        {
+            Console.WriteLine(coffee.Size);
 
         }
+
+
+   
 
     }
 }
