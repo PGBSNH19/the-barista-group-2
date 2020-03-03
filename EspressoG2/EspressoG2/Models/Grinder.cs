@@ -4,7 +4,9 @@ using System.Text;
 
 namespace EspressoG2.Models
 {
-    class Cop
+    public class Grinder
     {
+        public string Type { get; set; }
+        public string Model { get; set; }
     }
 }

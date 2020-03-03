@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Text;
-
-namespace EspressoG2.Models
+﻿namespace EspressoG2.Models
 {
-    public class Press
+    public class Perkulator
     {
         public string Volume { get; set; }
         public string Color { get; set; }

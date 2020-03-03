@@ -4,11 +4,12 @@ using System.Text;
 
 namespace EspressoG2.Models
 {
-    public class Press
+    public class Cup
     {
-        public string Volume { get; set; }
+        public string Size { get; set; }
         public string Color { get; set; }
+        public bool HandHoled { get; set; }
 
-        public string Manufacturer { get; set; }
+        public string Material { get; set; }
     }
 }

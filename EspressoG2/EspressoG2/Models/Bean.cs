@@ -4,7 +4,11 @@ using System.Text;
 
 namespace EspressoG2.Models
 {
-    class Bean
+    public class Bean
     {
+        public string Country;
+        public string Rost;
+        public bool EcoFriendly;
+            
     }
 }
