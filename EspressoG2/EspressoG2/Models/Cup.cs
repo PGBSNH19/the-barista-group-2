@@ -6,10 +6,11 @@ namespace EspressoG2.Models
 {
     public class Cup
     {
-        public string Size { get; set; }
-        public string Color { get; set; }
-        public bool HandHoled { get; set; }
+        public Cup(string size)
+        {
+            Size = size;
+        }
 
-        public string Material { get; set; }
+        public string Size { get; set; }
     }
 }

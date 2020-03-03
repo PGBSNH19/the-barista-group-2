@@ -6,9 +6,7 @@ namespace EspressoG2.Models
 {
     public class Bean
     {
-        public string Country;
-        public string Rost;
-        public bool EcoFriendly;
-            
+        public int AmountInGrams { get; set; }
+        public string Sort { get; set; }
     }
 }

@@ -8,5 +8,12 @@ namespace EspressoG2
         {
 
         }
+
+
+        private static void StartCoffeeMaking()
+        {
+
+        }
+
     }
 }
