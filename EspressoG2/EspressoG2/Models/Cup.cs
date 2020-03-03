@@ -8,7 +8,7 @@ namespace EspressoG2.Models
     {
         public Cup(string size)
         {
-            Size = size;
+            this.Size = size;
         }
 
         public string Size { get; set; }

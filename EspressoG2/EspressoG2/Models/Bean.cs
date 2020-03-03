@@ -8,5 +8,16 @@ namespace EspressoG2.Models
     {
         public int AmountInGrams { get; set; }
         public string Sort { get; set; }
+
+        public Bean BeanBlend(int amount, string sort)
+        {
+            var bean = new Bean
+            {
+                AmountInGrams = amount,
+                Sort = sort
+            };
+            return bean;
+        }
+
     }
 }
