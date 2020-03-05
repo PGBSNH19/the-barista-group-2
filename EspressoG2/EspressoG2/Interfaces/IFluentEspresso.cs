@@ -6,7 +6,9 @@ namespace EspressoG2.Interfaces
 {
     public interface IFluentEspresso
     {
-        IFluentEspresso AddMilk();
+        IFluentEspresso AddWater(int weight);
+        IFluentEspresso AddMilk(int weight);
+
         IFluentEspresso AddBeans(Bean bean);
         IBeverage ToBeverage();
     }
