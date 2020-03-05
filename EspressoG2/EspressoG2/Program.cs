@@ -9,18 +9,15 @@ namespace EspressoG2
     {
         static void Main(string[] args)
         {
-            
+            var x = new FluentEspresso().AddBeans(new Bean {Weight= 20,Sort= "arabica" });
+            Console.WriteLine(x);
         }
     }
 
     public class Bean
     {
 
-        public Bean(int weight, string sort)
-        {
-            Weight = weight;
-            Sort = sort;
-        }
+        
 
         public int Weight { get; set; }
         public string Sort { get; set; }
@@ -28,8 +25,10 @@ namespace EspressoG2
 
     public class FluentEspresso : IFluentEspresso
     {
+        public Bean _bean { get; set; }
         public IFluentEspresso AddBeans(Bean bean)
         {
+            _bean = bean;
             return this;
         }
 
