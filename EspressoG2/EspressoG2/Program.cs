@@ -7,10 +7,12 @@ namespace EspressoG2
 {
     class Program
     {
+        List<string> Ing = new List<string>();
+        
         static void Main(string[] args)
         {
             var espresso = new FluentEspresso().AddWater(20).AddBeans(new Bean {Weight= 20,Sort= "arabica" }).ToBeverage();
-           // var latte = new FluentEspresso().AddWater(20).AddMilk(20).AddBeans(new Bean { Weight = 30, Sort = "skånerost" }).ToBeverage();
+           var latte = new FluentEspresso().AddWater(20).AddMilk(20).AddBeans(new Bean { Weight = 30, Sort = "skånerost" }).ToBeverage();
           
         }
     }
@@ -27,11 +29,19 @@ namespace EspressoG2
         public string Sort { get; set; }
     }
 
-    public class FluentEspresso : IFluentEspresso
+    public class FluentEspresso : IFluentEspresso, IBeverage
     {
+        public IBeverage Beverage;   
+        
+        
         public Bean _bean { get; set; }
 
-        Latte latte = new Latte();
+        public List<string> Ingredients { get; set; }
+
+        public string CupType { get; set; }
+
+        public bool ContainsMilk { get; set; }
+
         public IFluentEspresso AddBeans(Bean bean)
         {
             _bean = bean;
@@ -40,26 +50,20 @@ namespace EspressoG2
 
         public IFluentEspresso AddMilk(int weight)
         {
-            
+            Beverage.ContainsMilk = true;
             return this;
         }
 
         public IBeverage ToBeverage()
         {
-            
-            if(latte.Ingredients.Contains("milk")) 
+
+            if (Beverage.ContainsMilk == true)
             {
                 return new Latte();
-            } 
-         
-            else if(latte.Ingredients.Contains("noMilk"))
-            {
-                return new Espresso();
             }
-
             else
             {
-                return null;
+                return new Espresso();
             }
             
         }
@@ -72,9 +76,12 @@ namespace EspressoG2
 
     public class Espresso : IBeverage
     {
-        public List<string> Ingredients => new List<string> { "espresso", "noMilk" };
+        public List<string> Ingredients => new List<string> { "espresso" };
+
 
         public string CupType => "small";
+
+        public bool ContainsMilk { get; set; }
     }
 
     public class Latte : IBeverage
@@ -82,5 +89,7 @@ namespace EspressoG2
         public List<string> Ingredients => new List<string> { "espresso", "milk" };
 
         public string CupType => "large";
+
+        public bool ContainsMilk { get; set; }
     }
 }

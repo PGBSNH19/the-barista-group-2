@@ -6,5 +6,6 @@ namespace EspressoG2.Interfaces
     {
         List<string> Ingredients { get; }
         string CupType { get; }
+        bool ContainsMilk { get; set; }
     }
 }
