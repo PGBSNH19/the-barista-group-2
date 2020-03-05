@@ -10,9 +10,8 @@ namespace EspressoG2
         static void Main(string[] args)
         {
             var espresso = new FluentEspresso().AddWater(20).AddBeans(new Bean {Weight= 20,Sort= "arabica" }).ToBeverage();
-            var latte = new FluentEspresso().AddWater(20).AddMilk(20).AddBeans(new Bean { Weight = 30, Sort = "skånerost" }).ToBeverage();
-            
-            Console.WriteLine(espresso);
+           // var latte = new FluentEspresso().AddWater(20).AddMilk(20).AddBeans(new Bean { Weight = 30, Sort = "skånerost" }).ToBeverage();
+          
         }
     }
 
@@ -29,8 +28,10 @@ namespace EspressoG2
     }
 
     public class FluentEspresso : IFluentEspresso
-    {   
+    {
         public Bean _bean { get; set; }
+
+        Latte latte = new Latte();
         public IFluentEspresso AddBeans(Bean bean)
         {
             _bean = bean;
@@ -39,21 +40,26 @@ namespace EspressoG2
 
         public IFluentEspresso AddMilk(int weight)
         {
-          
+            
             return this;
         }
 
         public IBeverage ToBeverage()
         {
             
-            if(this._bean.Sort == "skånerost") 
-            {
-                return new Espresso();
-            } 
-         
-            else
+            if(latte.Ingredients.Contains("milk")) 
             {
                 return new Latte();
+            } 
+         
+            else if(latte.Ingredients.Contains("noMilk"))
+            {
+                return new Espresso();
+            }
+
+            else
+            {
+                return null;
             }
             
         }
@@ -66,7 +72,7 @@ namespace EspressoG2
 
     public class Espresso : IBeverage
     {
-        public List<string> Ingredients => new List<string> { "espresso" };
+        public List<string> Ingredients => new List<string> { "espresso", "noMilk" };
 
         public string CupType => "small";
     }
